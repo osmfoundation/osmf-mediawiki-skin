@@ -1,0 +1,41 @@
+{
+    "name": "OSMF",
+    "author": "nebulon42",
+    "url": "?",
+    "descriptionmsg": "osmf-desc",
+    "namemsg": "skinname-osmf",
+    "license-name": "GPL-2.0+",
+    "type": "skin",
+    "requires": {
+        "MediaWiki": ">= 1.29.0"
+    },
+    "ValidSkinNames": {
+        "osmf": "OSMF"
+    },
+    "AutoloadClasses": {
+        "SkinOSMF": "OSMFSkin.php",
+        "OSMFTemplate": "OSMFTemplate.php"
+    },
+    "MessagesDirs": {
+        "OSMF": "i18n"
+    },
+    "ResourceModules": {
+        "skins.osmf": {
+            "targets": [ "desktop", "mobile" ],
+            "position": "top",
+            "styles": {
+                "osmf.less": { "media": "screen" }
+            }
+        },
+        "skins.osmf.js": {
+            "scripts": [
+                "osmf.js"
+            ],
+            "position": "bottom"
+        }
+    },
+    "ResourceFileModulePaths": {
+        "localBasePath": "",
+        "remoteSkinPath": "OSMF"
+    }
+}
