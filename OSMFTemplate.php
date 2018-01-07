@@ -244,7 +244,7 @@ class OSMFTemplate extends VectorTemplate {
                 foreach ( $nav as $key => $val ) {
                     echo $this->makeListItem( $key, $val );
                 }
-                if ( $hook !== null ) {
+                if ( isset($hook) && $hook !== null ) {
                     // Avoid PHP 7.1 warning
                     $skin = $this;
                     Hooks::run( $hook, [ &$skin, true ] );
