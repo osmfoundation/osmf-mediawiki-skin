@@ -25,6 +25,6 @@ as default by setting `$wgDefaultSkin = "OSMF";` in `LocalSettings.php`.
 Since this is a subskin of the [Vector](https://github.com/wikimedia/mediawiki-skins-Vector) skin of MediaWiki
 and Vector is available under GPL-2.0+ this subskin has to be licensed
 accordingly. The OSMF logo is CC-BY-SA 3.0 (by nebulon42) because the original
-OSM logo (Ken Vermette) is licensed that way. The font in the logo and on the
+OSM logo (by Ken Vermette) is licensed that way. The font in the logo and on the
 website is Palanquin by Pria Ravichandran and OSMFText respectively. See also
 the README file in the `fonts` directory.
