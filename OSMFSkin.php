@@ -19,19 +19,21 @@ class SkinOSMF extends SkinVector {
     /**
      * @param $out OutputPage object
      */
-    function setupSkinUserCss( OutputPage $out ){
+    function setupSkinUserCss( OutputPage $out ) {
         parent::setupSkinUserCss( $out );
         $out->addModuleStyles( "skins.osmf" );
     }
 
     /**
-     * This function adds JavaScript via ResourceLoader
+     * This function adds JavaScript via ResourceLoader and
+     * a meta tag.
      *
      * @param OutputPage $out
      */
 
     public function initPage( OutputPage $out ) {
         parent::initPage( $out );
+        $out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
         $out->addModules( 'skins.osmf.js' );
     }
 }
