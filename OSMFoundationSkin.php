@@ -12,16 +12,16 @@ require_once( dirname( __FILE__ ) . '/../Vector/Vector.php' );
  * SkinTemplate class for OSMF skin
  * @ingroup Skins
  */
-class SkinOSMF extends SkinVector {
+class SkinOSMFoundation extends SkinVector {
 
-    var $skinname = 'osmf', $stylename = 'OSMF', $template = 'OSMFTemplate';
+    var $skinname = 'osmfoundation', $stylename = 'OSMFoundation', $template = 'OSMFoundationTemplate';
 
     /**
      * @param $out OutputPage object
      */
     function setupSkinUserCss( OutputPage $out ) {
         parent::setupSkinUserCss( $out );
-        $out->addModuleStyles( "skins.osmf" );
+        $out->addModuleStyles( "skins.osmfoundation" );
     }
 
     /**
@@ -34,6 +34,6 @@ class SkinOSMF extends SkinVector {
     public function initPage( OutputPage $out ) {
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
-        $out->addModules( 'skins.osmf.js' );
+        $out->addModules( 'skins.osmfoundation.js' );
     }
 }

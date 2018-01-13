@@ -1,7 +1,7 @@
 {
-    "name": "OSMF",
+    "name": "OSMFoundation",
     "author": "nebulon42",
-    "url": "?",
+    "url": "https://github.com/osmfoundation/osmf-mediawiki-skin",
     "descriptionmsg": "osmf-desc",
     "namemsg": "skinname-osmf",
     "license-name": "GPL-2.0+",
@@ -10,32 +10,32 @@
         "MediaWiki": ">= 1.29.0"
     },
     "ValidSkinNames": {
-        "osmf": "OSMF"
+        "osmfoundation": "OSMFoundation"
     },
     "AutoloadClasses": {
-        "SkinOSMF": "OSMFSkin.php",
-        "OSMFTemplate": "OSMFTemplate.php"
+        "SkinOSMFoundation": "OSMFoundationSkin.php",
+        "OSMFoundationTemplate": "OSMFoundationTemplate.php"
     },
     "MessagesDirs": {
         "OSMF": "i18n"
     },
     "ResourceModules": {
-        "skins.osmf": {
+        "skins.osmfoundation": {
             "targets": [ "desktop", "mobile" ],
             "position": "top",
             "styles": {
-                "osmf.less": { "media": "screen" }
+                "osmfoundation.less": { "media": "screen" }
             }
         },
-        "skins.osmf.js": {
+        "skins.osmfoundation.js": {
             "scripts": [
-                "osmf.js"
+                "osmfoundation.js"
             ],
             "position": "bottom"
         }
     },
     "ResourceFileModulePaths": {
         "localBasePath": "",
-        "remoteSkinPath": "OSMF"
+        "remoteSkinPath": "OSMFoundation"
     }
 }

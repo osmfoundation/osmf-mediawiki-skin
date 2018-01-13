@@ -8,17 +8,17 @@ Vector as possible.
 ## Installation
 
 Place the repository in the `skins` folder of your MediaWiki installation and
-name the directory `OSMF`. Then add the following to your `LocalSettings.php`:
+name the directory `OSMFoundation`. Then add the following to your `LocalSettings.php`:
 
 ```
 # Enabled skins.
 # The following skins were automatically enabled:
 ...
-wfLoadSkin( 'OSMF' );
+wfLoadSkin( 'OSMFoundation' );
 ```
 
 Make sure that the Vector theme is present as well. You can also set this theme
-as default by setting `$wgDefaultSkin = "OSMF";` in `LocalSettings.php`.
+as default by setting `$wgDefaultSkin = "OSMFoundation";` in `LocalSettings.php`.
 
 ## License
 

@@ -10,7 +10,7 @@
  * QuickTemplate class for OSMF skin
  * @ingroup Skins
  */
-class OSMFTemplate extends VectorTemplate {
+class OSMFoundationTemplate extends VectorTemplate {
     /**
      * Outputs the entire contents of the (X)HTML page
      */
