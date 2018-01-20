@@ -675,20 +675,106 @@ footer {
 .mw-ui-button.mw-ui-progressive,
 .mw-ui-button.mw-ui-constructive {
     color: @ui-button-color;
-    background-color: @ui-button-background-color;
-    border: 1px solid @ui-button-background-color;
+    background-color: @ui-background-color;
+    border: 1px solid @ui-background-color;
 
     &:hover {
-        background-color: @ui-button-background-color-hover;
-        border: 1px solid @ui-button-background-color-hover;
+        background-color: @ui-background-color-hover;
+        border: 1px solid @ui-background-color-hover;
     }
 
     &:active {
-        background-color: @ui-button-background-color-active;
-        border: 1px solid @ui-button-background-color-active;
+        background-color: @ui-background-color-active;
+        border: 1px solid @ui-background-color-active;
     }
 
     &:focus {
-        box-shadow: inset 0 0 0 1px @ui-button-background-color,inset 0 0 0 2px #fff;
+        box-shadow: inset 0 0 0 1px @ui-background-color,inset 0 0 0 2px #fff;
     }
+}
+
+.mw-ui-input:focus {
+    border-color: @ui-background-color;
+    box-shadow: inset 0 0 0 1px @ui-background-color;
+}
+
+.oo-ui-textInputWidget.oo-ui-widget-enabled input:focus,
+.oo-ui-textInputWidget.oo-ui-widget-enabled textarea:focus {
+    border-color: @ui-background-color;
+    box-shadow: inset 0 0 0 1px @ui-background-color;
+
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:hover + span,
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:focus:hover + span {
+    border-color: @ui-background-color;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:active + span,
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:active:focus + span {
+    background-color: @ui-background-color-active;
+    border-color: @ui-background-color-active;
+    box-shadow: inset 0 0 0 1px @ui-background-color-active;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:focus + span {
+    border-color: @ui-background-color;
+    box-shadow: inset 0 0 0 1px @ui-background-color;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked + span {
+    background-color: @ui-background-color;
+    border-color: @ui-background-color;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked:hover + span,
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked:focus:hover + span {
+    background-color: @ui-background-color-hover;
+    border-color: @ui-background-color-hover;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked:focus + span {
+    background-color: @ui-background-color-hover;
+    border-color: @ui-background-color-hover;
+    box-shadow: inset 0 0 0 1px @ui-background-color-hover,inset 0 0 0 2px #fff;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked:active + span,
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked:active:hover + span,
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:checked:active:focus + span {
+    background-color: @ui-background-color-active;
+    border-color: @ui-background-color-active;
+    box-shadow: inset 0 0 0 1px @ui-background-color-active;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button {
+    color: @ui-button-color;
+    background-color: @ui-background-color;
+    border-color: @ui-background-color;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button:hover {
+    background-color: @ui-background-color-hover;
+    border-color: @ui-background-color-hover;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button:active,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button:active:focus,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive.oo-ui-buttonElement-pressed > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive.oo-ui-buttonElement-active > .oo-ui-buttonElement-button,
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive.oo-ui-popupToolGroup-active > .oo-ui-buttonElement-button {
+    color: @ui-button-color;
+    background-color: @ui-background-color-active;
+    border-color: @ui-background-color-active;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button:focus {
+    border-color: @ui-background-color;
+    box-shadow: inset 0 0 0 1px @ui-background-color,inset 0 0 0 2px #fff;
+    outline: 0;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+    border-color: @ui-background-color;
+    box-shadow: inset 0 0 0 1px @ui-background-color;
 }
