@@ -1,14 +1,13 @@
 (function ($) {
     $(document).ready(function () {
         window.onscroll = function() {
-            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop,
-                threshold = 130;
+            var $header = $('header');
 
-            if (scrollPosition >= threshold) {
-                $('header').addClass('fixed');
+            if (window.pageYOffset >= $header.height()) {
+                $header.addClass('fixed');
             }
             else {
-                $('header').removeClass('fixed');
+                $header.removeClass('fixed');
             }
         };
 
