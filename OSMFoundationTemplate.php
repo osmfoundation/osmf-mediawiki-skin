@@ -222,7 +222,7 @@ class OSMFoundationTemplate extends VectorTemplate {
                 $this->renderPortals( $sidebarData );
             ?>
             </div>
-            <div class=powered-by>Powered by <a href="https://mediawiki.org" target="_blank">MediaWiki</a></div>
+            <div class=powered-by><?php echo wfMessage( 'powered-by' )->plain() ?></div>
         </footer>
         <?php $this->printTrail(); ?>
 

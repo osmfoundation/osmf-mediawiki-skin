@@ -4,5 +4,6 @@
     },
     "skinname-osmf": "OSMF",
     "osmf-skin-desc": "Skin for OpenStreetMap Foundation based on Vector skin",
-    "navigation-toggle": "Toggle navigation"
+    "navigation-toggle": "Toggle navigation",
+    "powered-by": "Powered by <a href=\"https://mediawiki.org\" target=\"_blank\">MediaWiki</a>"
 }
