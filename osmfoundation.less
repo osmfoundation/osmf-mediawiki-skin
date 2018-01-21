@@ -38,6 +38,11 @@ h6 {
     font-weight: bold;
 }
 
+fieldset {
+    border: 0;
+    border-top: 1px solid @ui-background-color;
+}
+
 header {
     background-color: @brand-primary;
     height: auto;
@@ -331,8 +336,11 @@ main.mw-body {
             }
         }
 
-        #toc ul li::before {
-            width: 0;
+        #toc,
+        #mw-normal-catlinks {
+            & ul li::before {
+                width: 0;
+            }
         }
     }
 }
@@ -375,7 +383,8 @@ main.mw-body {
             font-size: 1.1em;
             padding: 10px 20px;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 text-decoration: none;
                 background-color: darken(@brand-primary, 5%);
             }
@@ -781,4 +790,14 @@ footer {
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
     border-color: @ui-background-color;
     box-shadow: inset 0 0 0 1px @ui-background-color;
+}
+
+.client-js #preferences > fieldset {
+    border: 0;
+    padding: 0;
+    margin: 1em;
+
+    & > legend {
+        display: none;
+    }
 }
