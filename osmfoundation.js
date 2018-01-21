@@ -1,13 +1,16 @@
 (function ($) {
     $(document).ready(function () {
         window.onscroll = function() {
-            var $header = $('header');
+            var $header = $('header'),
+                $body = $('body');
 
             if (window.pageYOffset >= $header.height()) {
                 $header.addClass('fixed');
+                $body.addClass('header-fixed');
             }
             else {
                 $header.removeClass('fixed');
+                $body.removeClass('header-fixed');
             }
         };
 
