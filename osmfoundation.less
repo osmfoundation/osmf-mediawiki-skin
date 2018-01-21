@@ -801,3 +801,28 @@ footer {
         display: none;
     }
 }
+
+#preftoc {
+    li::before {
+        width: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin-bottom: 0;
+
+        a {
+            color: @text-color;
+            display: block;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        &.selected {
+            background-color: @brand-primary;
+        }
+    }
+
+    border-bottom: 1px solid @ui-background-color;
+    margin-left: 0;
+}
