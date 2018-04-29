@@ -25,7 +25,7 @@ class OSMFoundationTemplate extends VectorTemplate {
 
           if ( isset( $nav['actions'][$mode] ) ) {
             $nav['views'][$mode] = $nav['actions'][$mode];
-            $nav['views'][$mode]['class'] = rtrim( 'icon ' . $nav['views'][$mode]['class'], ' ' );
+            $nav['views'][$mode]['class'] = $nav['views'][$mode]['class'];
             $nav['views'][$mode]['primary'] = true;
             unset( $nav['actions'][$mode] );
           }
@@ -34,9 +34,6 @@ class OSMFoundationTemplate extends VectorTemplate {
         $xmlID = '';
         foreach ( $nav as $section => $links ) {
           foreach ( $links as $key => $link ) {
-            if ( $section == 'views' && !( isset( $link['primary'] ) && $link['primary'] ) ) {
-              $link['class'] = rtrim( 'collapsible ' . $link['class'], ' ' );
-            }
 
             $xmlID = isset( $link['id'] ) ? $link['id'] : 'ca-' . $xmlID;
             $nav[$section][$key]['attributes'] =
