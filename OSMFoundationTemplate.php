@@ -15,24 +15,63 @@ class OSMFoundationTemplate extends VectorTemplate {
      * Outputs the entire contents of the (X)HTML page
      */
     public function execute() {
-        $this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
-        $this->data['view_urls'] = $this->data['content_navigation']['views'];
-        $this->data['action_urls'] = $this->data['content_navigation']['actions'];
-        $this->data['variant_urls'] = $this->data['content_navigation']['variants'];
+        // Build additional attributes for navigation urls
+        $nav = $this->data['content_navigation'];
 
-        // Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
         if ( $this->config->get( 'VectorUseIconWatch' ) ) {
-            $mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
-                ? 'unwatch'
-                : 'watch';
+          $mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
+            ? 'unwatch'
+            : 'watch';
 
-            if ( isset( $this->data['action_urls'][$mode] ) ) {
-                $this->data['view_urls'][$mode] = $this->data['action_urls'][$mode];
-                unset( $this->data['action_urls'][$mode] );
-            }
+          if ( isset( $nav['actions'][$mode] ) ) {
+            $nav['views'][$mode] = $nav['actions'][$mode];
+            $nav['views'][$mode]['class'] = rtrim( 'icon ' . $nav['views'][$mode]['class'], ' ' );
+            $nav['views'][$mode]['primary'] = true;
+            unset( $nav['actions'][$mode] );
+          }
         }
+
+        $xmlID = '';
+        foreach ( $nav as $section => $links ) {
+          foreach ( $links as $key => $link ) {
+            if ( $section == 'views' && !( isset( $link['primary'] ) && $link['primary'] ) ) {
+              $link['class'] = rtrim( 'collapsible ' . $link['class'], ' ' );
+            }
+
+            $xmlID = isset( $link['id'] ) ? $link['id'] : 'ca-' . $xmlID;
+            $nav[$section][$key]['attributes'] =
+              ' id="' . Sanitizer::escapeId( $xmlID ) . '"';
+            if ( $link['class'] ) {
+              $nav[$section][$key]['attributes'] .=
+                ' class="' . htmlspecialchars( $link['class'] ) . '"';
+              unset( $nav[$section][$key]['class'] );
+            }
+            if ( isset( $link['tooltiponly'] ) && $link['tooltiponly'] ) {
+              $nav[$section][$key]['key'] =
+                Linker::tooltip( $xmlID );
+            } else {
+              $nav[$section][$key]['key'] =
+                Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( $xmlID ) );
+            }
+          }
+        }
+        $this->data['namespace_urls'] = $nav['namespaces'];
+        $this->data['view_urls'] = $nav['views'];
+        $this->data['action_urls'] = $nav['actions'];
+        $this->data['variant_urls'] = $nav['variants'];
+
+        // Reverse horizontally rendered navigation elements
+        if ( $this->data['rtl'] ) {
+          $this->data['view_urls'] =
+            array_reverse( $this->data['view_urls'] );
+          $this->data['namespace_urls'] =
+            array_reverse( $this->data['namespace_urls'] );
+          $this->data['personal_urls'] =
+            array_reverse( $this->data['personal_urls'] );
+        }
+
         $this->data['pageLanguage'] =
-            $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
+          $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 
         // Output HTML Page
         $this->html( 'headelement' );

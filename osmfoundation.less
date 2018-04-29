@@ -478,6 +478,10 @@ footer {
                 &:first-of-type {
                     margin-left: 0;
                 }
+
+                &.active a {
+                    text-decoration: underline;
+                }
             }
         }
 
@@ -515,6 +519,19 @@ footer {
 
                 &:first-of-type a {
                     padding-left: 0;
+                }
+
+                &.new a {
+                    color: @new-link-color;
+                }
+
+                &.selected {
+                    background-image: none;
+
+                    a {
+                        color: @footer-text-color !important;
+                        text-decoration: underline;
+                    }
                 }
             }
         }
