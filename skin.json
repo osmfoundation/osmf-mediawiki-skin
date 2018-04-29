@@ -24,7 +24,7 @@
             "targets": [ "desktop", "mobile" ],
             "position": "top",
             "styles": {
-                "osmfoundation.less": { "media": "screen" }
+                "osmfoundation.less": {}
             }
         },
         "skins.osmfoundation.js": {
