@@ -95,11 +95,12 @@ header.fixed + .main-wrapper {
 }
 
 // this should avoid that anchors are obscured by the fixed header
-:target:before {
+:target::before {
     content: '';
     display: block;
     height: 60px; /* fixed header height*/
     margin-top: -60px; /* negative fixed header height */
+    visibility: hidden;
 }
 
 header div#mw-panel,
@@ -894,4 +895,8 @@ main.mw-body .mw-body-content .toc {
 
 #toc, .toc {
     padding: 15px;
+}
+
+.noautonum .tocnumber {
+    display: none;
 }
