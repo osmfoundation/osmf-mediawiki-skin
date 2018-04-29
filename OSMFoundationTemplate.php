@@ -73,6 +73,16 @@ class OSMFoundationTemplate extends VectorTemplate {
         // Output HTML Page
         $this->html( 'headelement' );
         ?>
+        <div id="jump-to-nav" class="mw-jump">
+            <?php $this->msg( 'jumpto' ) ?>
+            <a href="#firstHeading"><?php
+                $this->msg( 'jumptocontent' )
+            ?></a><?php $this->msg( 'comma-separator' ) ?>
+            <a href="#mw-navigation"><?php
+                $this->msg( 'jumptonavigation' )
+            ?></a><?php $this->msg( 'comma-separator' ) ?>
+            <a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
+        </div>
         <header id="mw-navigation">
             <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
             <div id="mw-panel">
@@ -159,13 +169,6 @@ class OSMFoundationTemplate extends VectorTemplate {
                         );
                     }
                     ?>
-                    <div id="jump-to-nav" class="mw-jump">
-                        <?php $this->msg( 'jumpto' ) ?>
-                        <a href="#mw-head"><?php
-                            $this->msg( 'jumptonavigation' )
-                        ?></a><?php $this->msg( 'comma-separator' ) ?>
-                        <a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
-                    </div>
                     <?php
                     $this->html( 'bodycontent' );
 
