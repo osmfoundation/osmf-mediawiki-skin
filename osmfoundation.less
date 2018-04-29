@@ -94,6 +94,14 @@ header.fixed + .main-wrapper {
     padding-top: 129px;
 }
 
+// this should avoid that anchors are obscured by the fixed header
+:target:before {
+    content: '';
+    display: block;
+    height: 60px; /* fixed header height*/
+    margin-top: -60px; /* negative fixed header height */
+}
+
 header div#mw-panel,
 header #p-logo {
     position: static;
