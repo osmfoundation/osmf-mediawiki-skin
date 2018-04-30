@@ -1,9 +1,14 @@
 (function ($) {
     $(document).ready(function () {
-        window.onscroll = function() {
-            var $header = $('header'),
-                $body = $('body');
+        var $header = $('header'),
+            $body = $('body');
 
+        if (window.pageYOffset >= $header.height()) {
+            $header.addClass('fixed');
+            $body.addClass('header-fixed');
+        }
+        
+        window.onscroll = function() {
             if (window.pageYOffset >= $header.height()) {
                 $header.addClass('fixed');
                 $body.addClass('header-fixed');
