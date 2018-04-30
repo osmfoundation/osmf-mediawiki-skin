@@ -915,3 +915,84 @@ main.mw-body .mw-body-content .toc {
 .osmf-center {
     text-align: center;
 }
+
+.osmf-box-corporate {
+    border: 10px solid lighten(@brand-secondary, 40%);
+    margin: 15px 0;
+
+    .osmf-box-corporate-title {
+        text-align: center;
+        background-color: lighten(@brand-secondary, 40%);
+        padding: 10px 8px;
+        font-size: 1.8em;
+    }
+
+    .osmf-box-corporate-title,
+    .osmf-box-corporate-members {
+        margin: 2px;
+    }
+
+    .osmf-box-corporate-members {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .osmf-box-corporate-member {
+            width: 45%;
+            text-align: center;
+            padding: 25px 15px;
+
+            @media (max-width: 900px) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.osmf-box-corporate.corporate-platinum {
+    border-color: @corporate-platinum;
+
+    .osmf-box-corporate-title {
+        background-color: @corporate-platinum;
+    }
+}
+
+.osmf-box-corporate.corporate-gold {
+    border-color: @corporate-gold;
+
+    .osmf-box-corporate-title {
+        background-color: @corporate-gold;
+    }
+}
+
+.osmf-box-corporate.corporate-silver {
+    border-color: @corporate-silver;
+
+    .osmf-box-corporate-title {
+        background-color: @corporate-silver;
+    }
+}
+
+.osmf-box-corporate.corporate-bronze {
+    border-color: @corporate-bronze;
+
+    .osmf-box-corporate-title {
+        background-color: @corporate-bronze;
+    }
+}
+
+.osmf-box-corporate.corporate-supporter {
+    border-color: @corporate-supporter;
+
+    .osmf-box-corporate-title {
+        background-color: @corporate-supporter;
+    }
+
+    .osmf-box-corporate-member a,
+    .osmf-box-corporate-member a:active,
+    .osmf-box-corporate-member a:visited {
+        color: @text-color;
+        text-decoration: none;
+        font-size: 1.35em;
+    }
+}
