@@ -281,7 +281,11 @@ class OSMFoundationTemplate extends VectorTemplate {
             <ul class="mainnav">
                 <?php
                 foreach ( $nav as $key => $val ) {
-                    echo $this->makeListItem( $key, $val );
+                    echo $this->makeListItem(
+                        $key, $val, array(
+                            'text-wrapper' => array( 'tag' => 'span' )
+                        )
+                    );
                 }
                 if ( isset($hook) && $hook !== null ) {
                     // Avoid PHP 7.1 warning

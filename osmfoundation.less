@@ -401,7 +401,6 @@ main.mw-body {
 
         a {
             display: block;
-            height: 100%;
             color: @text-color;
             font-size: 1.1em;
             padding: 10px 20px;
@@ -413,13 +412,28 @@ main.mw-body {
             }
 
             @media (min-width: 900px) {
+                height: 129px;
                 text-align: center;
                 font-size: 1.2em;
                 min-width: 70px;
-                line-height: 120px;
+                line-height: 129px;
                 padding: 0 10px;
+
+                span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: 1.2em;
+                    margin-top: -10px;
+                }
             }
         }
+    }
+}
+
+header.fixed .mainnav li a {
+    @media (min-width: 900px) {
+        height: 60px;
+        line-height: 60px;
     }
 }
 
