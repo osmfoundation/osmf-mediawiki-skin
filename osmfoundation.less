@@ -1010,3 +1010,38 @@ main.mw-body .mw-body-content .toc {
         font-size: 1.35em;
     }
 }
+
+table.wikitable {
+    color: @text-color;
+    border-color: darken(@brand-primary, 20%);
+    background-color: transparent;
+
+    & > tr > th,
+    & > tr > td,
+    & > * > tr > th,
+    & > * > tr > td {
+        padding: 5px 10px;
+        border: 0;
+        background-color: transparent;
+    }
+
+    & > tr > th,
+    & > * > tr > th {
+        background-color: @brand-primary;
+        border-bottom: 1px solid darken(@brand-primary, 20%);
+    }
+
+    & > tr:not(:last-of-type) > td,
+    & > * > tr:not(:last-of-type) > td {
+        border-bottom: 1px solid darken(@brand-primary, 10%);
+    }
+}
+
+#toc,
+.toc,
+.mw-warning,
+.toccolours,
+.catlinks {
+    background-color: lighten(@brand-secondary, 80%);
+    border-color: lighten(@brand-secondary, 70%);
+}
