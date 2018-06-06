@@ -10,7 +10,7 @@ Vector as possible.
 Place the repository in the `skins` folder of your MediaWiki installation and
 name the directory `OSMFoundation`. Then add the following to your `LocalSettings.php`:
 
-```
+```php
 # Enabled skins.
 # The following skins were automatically enabled:
 ...
