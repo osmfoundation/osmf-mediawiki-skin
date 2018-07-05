@@ -197,7 +197,7 @@ class OSMFoundationTemplate extends VectorTemplate {
         <footer id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
             <div class="first-row">
                 <div id="mw-personal">
-                    <?php $this->renderNavigation( 'PERSONAL' ); ?>
+                    <?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
                 </div>
 
                 <?php
