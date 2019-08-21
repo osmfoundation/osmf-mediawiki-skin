@@ -6,7 +6,7 @@
 * @ingroup Skins
 */
 
-require_once( dirname( __FILE__ ) . '/../Vector/Vector.php' );
+wfLoadSkin('Vector');
 
 /**
  * SkinTemplate class for OSMF skin
