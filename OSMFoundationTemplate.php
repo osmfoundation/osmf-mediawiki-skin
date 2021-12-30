@@ -495,7 +495,7 @@ class OSMFoundationTemplate extends BaseTemplate {
                     <?php
                     foreach ( $info as $link ) {
                     ?>
-                    <li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
+                    <li id="footer--<?php echo $link ?>"><?php $this->html( $link ) ?></li>
                     <?php
                     }
                     ?>
