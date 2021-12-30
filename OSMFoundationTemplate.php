@@ -11,6 +11,24 @@
  * @ingroup Skins
  */
 class OSMFoundationTemplate extends BaseTemplate {
+
+    /**
+     * Render a series of portals
+     *
+     * @param array $portals
+     */
+    protected function renderPortals( array $portals ) {
+    }
+
+    /**
+     * Render one or more navigations elements by name, automatically reversed by css
+     * when UI is in RTL mode
+     *
+     * @param array $elements
+     */
+    protected function renderNavigation( array $elements ) {
+    }
+
     /**
      * Outputs the entire contents of the (X)HTML page
      */
