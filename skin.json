@@ -22,8 +22,11 @@
     },
     "ResourceModules": {
         "skins.osmfoundation": {
+            "class": "ResourceLoaderSkinModule",
+            "features": {
+                "logo": true
+            },
             "targets": [ "desktop", "mobile" ],
-            "position": "top",
             "styles": {
                 "osmfoundation.less": {}
             }

@@ -385,7 +385,7 @@ class OSMFoundationTemplate extends BaseTemplate {
                         <span></span>
                     </div>
                 </button>
-                <div id="p-logo" role="banner"><a class="logo" href="<?php
+                <div id="p-logo" role="banner"><a class="logo mw-wiki-logo" href="<?php
                     echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
                     ?>" <?php
                     echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) )
