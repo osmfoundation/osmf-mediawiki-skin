@@ -6,6 +6,7 @@
     "namemsg": "skinname-osmf",
     "license-name": "GPL-2.0+",
     "type": "skin",
+    "manifest_version": 2,
     "requires": {
         "MediaWiki": ">= 1.29.0"
     },
