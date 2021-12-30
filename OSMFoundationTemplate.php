@@ -18,17 +18,26 @@ class OSMFoundationTemplate extends BaseTemplate {
         // Build additional attributes for navigation urls
         $nav = $this->data['content_navigation'];
 
-        if ( $this->config->get( 'VectorUseIconWatch' ) ) {
-          $mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
-            ? 'unwatch'
-            : 'watch';
+        $user = $this->getSkin()->getUser();
+        $relevantTitle = $this->getSkin()->getRelevantTitle();
+        $isWatched = false;
+        // Use method_exists to maintain compatibility with MediaWiki 1.30
+        if ( method_exists( $user, 'isWatched' ) ) {
+            $isWatched = $user->isWatched( $relevantTitle );
+        } else {
+            $instance = MediaWiki\MediaWikiServices::getInstance();
+            $isWatched = $instance->getWatchedItemStore()->isWatched(
+                $user,
+                $relevantTitle
+            );
+        }
+        $mode = $isWatched ? 'unwatch' : 'watch';
 
-          if ( isset( $nav['actions'][$mode] ) ) {
+        if ( isset( $nav['actions'][$mode] ) ) {
             $nav['views'][$mode] = $nav['actions'][$mode];
             $nav['views'][$mode]['class'] = $nav['views'][$mode]['class'];
             $nav['views'][$mode]['primary'] = true;
             unset( $nav['actions'][$mode] );
-          }
         }
 
         $xmlID = '';
