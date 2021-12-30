@@ -24,6 +24,7 @@
         "skins.osmfoundation": {
             "class": "ResourceLoaderSkinModule",
             "features": {
+                "interface": true,
                 "logo": true
             },
             "targets": [ "desktop", "mobile" ],
