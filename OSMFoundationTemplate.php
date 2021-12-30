@@ -130,7 +130,7 @@ class OSMFoundationTemplate extends BaseTemplate {
                     ?>" <?php
                     echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) )
                     ?>></a></div>
-                <?php $this->renderNav( $this->data['sidebar']['MENUBAR'] ); ?>
+                <?php $this->renderNav( $this->data['sidebar']['MENUBAR'] ?? $this->data['sidebar']['navigation'] ?? [] ); ?>
             </div>
         </header>
         <div class="main-wrapper">
@@ -321,6 +321,12 @@ class OSMFoundationTemplate extends BaseTemplate {
                 }
                 ?>
             </ul>
+            <?php
+        } else {
+            ?>
+            <div class="mainnav">
+                Site misconfigured: Please add "MENUBAR" section to [[MediaWiki:Sidebar]].
+            </div>
             <?php
         }
     }
