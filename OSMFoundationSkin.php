@@ -5,13 +5,12 @@
 * @file
 * @ingroup Skins
 */
-wfLoadSkin('Vector');
 
 /**
  * SkinTemplate class for OSMF skin
  * @ingroup Skins
  */
-class SkinOSMFoundation extends SkinVector {
+class SkinOSMFoundation extends SkinTemplate {
 
     var $skinname = 'osmfoundation', $stylename = 'OSMFoundation', $template = 'OSMFoundationTemplate';
 
