@@ -5,7 +5,6 @@
 * @file
 * @ingroup Skins
 */
-
 wfLoadSkin('Vector');
 
 /**
@@ -15,14 +14,6 @@ wfLoadSkin('Vector');
 class SkinOSMFoundation extends SkinVector {
 
     var $skinname = 'osmfoundation', $stylename = 'OSMFoundation', $template = 'OSMFoundationTemplate';
-
-    /**
-     * @param $out OutputPage object
-     */
-    function setupSkinUserCss( OutputPage $out ) {
-        parent::setupSkinUserCss( $out );
-        $out->addModuleStyles( "skins.osmfoundation" );
-    }
 
     /**
      * This function adds JavaScript via ResourceLoader and
@@ -35,5 +26,6 @@ class SkinOSMFoundation extends SkinVector {
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
         $out->addModules( 'skins.osmfoundation.js' );
+        $out->addModuleStyles( "skins.osmfoundation" );
     }
 }
