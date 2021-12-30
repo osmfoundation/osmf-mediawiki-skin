@@ -240,7 +240,7 @@ class OSMFoundationTemplate extends BaseTemplate {
                             echo $langSelector;
                             echo $notLoggedIn;
                             foreach ( $personalTools as $key => $item ) {
-                                echo $this->makeListItem( $key, $item );
+                                echo $this->makeListItem( $key, $item ) . '&nbsp;';
                             }
                             ?>
                         </ul>
