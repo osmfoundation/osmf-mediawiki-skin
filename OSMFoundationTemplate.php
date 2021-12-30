@@ -13,11 +13,95 @@
 class OSMFoundationTemplate extends BaseTemplate {
 
     /**
+     * @param string $name
+     * @param array|string $content
+     * @param null|string $msg
+     * @param null|string|array $hook
+     */
+    protected function renderPortal( $name, $content, $msg = null, $hook = null ) {
+        if ( $msg === null ) {
+            $msg = $name;
+        }
+        $msgObj = $this->getMsg( $msg );
+        $labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
+        ?>
+        <div class="portal" role="navigation" id="<?php
+        echo htmlspecialchars( Sanitizer::escapeIdForAttribute( "p-$name" ) )
+        ?>"<?php
+        echo Linker::tooltip( 'p-' . $name )
+        ?> aria-labelledby="<?php echo htmlspecialchars( $labelId ) ?>">
+            <h3<?php $this->html( 'userlangattributes' ) ?> id="<?php echo htmlspecialchars( $labelId )
+                ?>"><?php
+                echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $msg );
+                ?></h3>
+            <div class="body">
+                <?php
+                if ( is_array( $content ) ) {
+                ?>
+                <ul>
+                    <?php
+                    foreach ( $content as $key => $val ) {
+                        echo $this->makeListItem( $key, $val );
+                    }
+                    if ( $hook !== null ) {
+                        // Avoid PHP 7.1 warning
+                        $skin = $this;
+                        Hooks::run( $hook, [ &$skin, true ] );
+                    }
+                    ?>
+                </ul>
+                <?php
+                } else {
+                    // Allow raw HTML block to be defined by extensions
+                    echo $content;
+                }
+
+                echo $this->getSkin()->getAfterPortlet( $name );
+                ?>
+            </div>
+        </div>
+    <?php
+    }
+
+    /**
      * Render a series of portals
      *
      * @param array $portals
      */
     protected function renderPortals( array $portals ) {
+        // Force the rendering of the following portals
+        if ( !isset( $portals['TOOLBOX'] ) ) {
+            $portals['TOOLBOX'] = true;
+        }
+        if ( !isset( $portals['LANGUAGES'] ) ) {
+            $portals['LANGUAGES'] = true;
+        }
+        // Render portals
+        foreach ( $portals as $name => $content ) {
+            if ( $content === false ) {
+                continue;
+            }
+
+            // Numeric strings gets an integer when set as key, cast back - T73639
+            $name = (string)$name;
+
+            switch ( $name ) {
+                case 'SEARCH':
+                    break;
+                case 'TOOLBOX':
+                    $toolbox = $this->data['sidebar']['TOOLBOX'];
+                    $this->renderPortal( 'tb', $toolbox, 'toolbox', 'SkinTemplateToolboxEnd' );
+                    break;
+                case 'LANGUAGES':
+                    if ( $this->data['language_urls'] !== false ) {
+                        $this->renderPortal( 'lang', $this->data['language_urls'], 'otherlanguages' );
+                    }
+                    break;
+                default:
+                    $this->renderPortal( $name, $content );
+                    break;
+            }
+        }
     }
 
     /**
