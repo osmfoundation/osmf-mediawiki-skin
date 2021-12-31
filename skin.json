@@ -6,6 +6,7 @@
     "namemsg": "skinname-osmf",
     "license-name": "GPL-2.0+",
     "type": "skin",
+    "manifest_version": 2,
     "requires": {
         "MediaWiki": ">= 1.29.0"
     },
@@ -21,8 +22,12 @@
     },
     "ResourceModules": {
         "skins.osmfoundation": {
+            "class": "ResourceLoaderSkinModule",
+            "features": {
+                "interface": true,
+                "logo": true
+            },
             "targets": [ "desktop", "mobile" ],
-            "position": "top",
             "styles": {
                 "osmfoundation.less": {}
             }

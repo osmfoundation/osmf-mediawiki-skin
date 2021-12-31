@@ -1,0 +1,131 @@
+/* Variants and Actions */
+.vectorMenu {
+	direction: ltr;
+	float: left;
+	cursor: pointer;
+	position: relative;
+	line-height: 1.125em;
+
+	h3 {
+		span {
+			color: @color-nav-subtle;
+			position: relative;
+			display: block;
+			padding-left: 0.615em;
+			padding-top: 1.25em;
+			padding-right: 16px;
+			font-size: @font-size-tabs;
+			font-weight: normal;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 1.25em;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-image: background-image( 'images/arrow-down.svg' );
+				background-position: 100% 50%;
+				background-repeat: no-repeat;
+				// Modify the color of the image from the default #222 to approx. #444 to match the text.
+				opacity: 0.85;
+			}
+		}
+
+		&:hover span,
+		&:focus span {
+			color: @color-base;
+
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+
+	.menu {
+		list-style: none none;
+		background-color: @background-color-base;
+		clear: both;
+		// Match the width of the dropdown "heading" (the tab)
+		min-width: 100%;
+		position: absolute;
+		top: 2.5em;
+		left: -@border-width-base;
+		margin: 0;
+		border: @border-width-base @border-style-base @border-color-base;
+		border-top-width: 0;
+		padding: 0;
+		box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
+		text-align: left;
+		opacity: 0;
+		visibility: hidden;
+		.transition( opacity 100ms );
+		// Menus must overlap indicators (z-index: 1) and VisualEditor toolbar (z-index: 2)
+		z-index: 2;
+	}
+
+	&:hover .menu {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	// This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above
+	// Support: IE8
+	.vectorMenuCheckbox:checked ~ .menu {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	li {
+		padding: 0;
+		margin: 0;
+		text-align: left;
+		line-height: 1em;
+
+		a {
+			color: @footer-background-color;
+			display: block;
+			padding: 0.625em;
+			white-space: nowrap;
+			cursor: pointer;
+			font-size: @font-size-tabs;
+		}
+	}
+
+	.selected a,
+	.selected a:visited {
+		color: lighten( @footer-background-color, 80% );
+		text-decoration: none;
+	}
+}
+
+// Invisible checkbox covering the dropdown menu handle
+.vectorMenuCheckbox {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	// Hide the checkbox completely in browsers that don't support :checked
+	display: none;
+
+	:not( :checked ) > & {
+		// When the browser supports :checked, display it
+		display: block;
+	}
+
+	&:checked + h3 span:after {
+		transform: scaleY( -1 );
+	}
+
+	&:focus + h3 {
+		// Simulate browser focus ring
+		outline: dotted 1px; // Firefox style
+		outline: auto -webkit-focus-ring-color; // Webkit style
+	}
+}
