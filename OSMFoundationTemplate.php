@@ -254,7 +254,7 @@ class OSMFoundationTemplate extends BaseTemplate {
                             <label for="searchInput"><?php $this->msg( 'search' ) ?></label>
                         </h3>
                         <form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-                            <div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
+                            <div id="simpleSearch">
                                 <?php
                                 echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
                                 echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
