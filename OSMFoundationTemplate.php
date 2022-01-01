@@ -308,7 +308,6 @@ class OSMFoundationTemplate extends BaseTemplate {
                 $user,
                 $relevantTitle
             );
-        }
         $mode = $isWatched ? 'unwatch' : 'watch';
 
         if ( isset( $nav['actions'][$mode] ) ) {

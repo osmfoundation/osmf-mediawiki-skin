@@ -8,13 +8,23 @@
     "type": "skin",
     "manifest_version": 2,
     "requires": {
-        "MediaWiki": ">= 1.29.0"
+        "MediaWiki": ">= 1.35.0"
     },
     "ValidSkinNames": {
-        "osmfoundation": "OSMFoundation"
+        "osmfoundation": {
+            "class": "SkinTemplate",
+            "args": [
+                {
+                    "name": "osmfoundation",
+                    "template": "OSMFoundationTemplate",
+                    "responsive": true,
+                    "styles": [ "skins.osmfoundation" ],
+                    "scripts": [ "skins.osmfoundation.js" ]
+                }
+            ]
+        }
     },
     "AutoloadClasses": {
-        "SkinOSMFoundation": "OSMFoundationSkin.php",
         "OSMFoundationTemplate": "OSMFoundationTemplate.php"
     },
     "MessagesDirs": {
@@ -33,10 +43,10 @@
             }
         },
         "skins.osmfoundation.js": {
+            "targets": [ "desktop", "mobile" ],
             "scripts": [
                 "osmfoundation.js"
-            ],
-            "position": "bottom"
+            ]
         }
     },
     "ResourceFileModulePaths": {
