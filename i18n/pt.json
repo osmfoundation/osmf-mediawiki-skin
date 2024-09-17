@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [ "nebulon42" ]
+    },
+    "skinname-osmf": "OSMF",
+    "osmf-skin-desc": "Skin para Fundação OpenStreetMap baseado no Vector skin",
+    "navigation-toggle": "Alternar navegação",
+    "powered-by": "Desenvolvido por <a href=\"https://mediawiki.org\" target=\"_blank\">MediaWiki</a>",
+    "jumptocontent": "conteúdo"
+}
