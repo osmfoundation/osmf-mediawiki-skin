@@ -1,3 +1,11 @@
+> [!IMPORTANT]
+> **This MediaWiki skin is no longer in use by the OpenStreetMap Foundation.**
+>
+> Following the upgrade to newer versions of MediaWiki, this skin has been retired and is no longer used on the OSMF wiki. See [issue #32](https://github.com/osmfoundation/osmf-mediawiki-skin/issues/32#issuecomment-5619660775) for further context.
+>
+> This repository is retained for historical reference. The skin should be considered **unmaintained** and may not work with current versions of MediaWiki.
+
+
 # MediaWiki skin for OSMF
 
 A MediaWiki skin for the OSMF website based on the standard Vector skin of
